@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Financial Wellness Webinar</title>
+        <title>Financial Planning Webinar</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,8 +19,9 @@
 
             .content {
                 text-align: center;
-                margin-left: 15px;
-                margin-right: 15px;
+                margin: 15px auto;
+                width: 100%;
+                max-width: 1000px;
             }
 
             .responsive {
@@ -76,6 +77,10 @@
                 margin-top: 10px;
             }
 
+            .button:hover {
+                background-color: orange;
+            }
+
             .testimonials {
                 font-size: 14pt;
                 font-weight: bold;
@@ -123,7 +128,7 @@
                 </div>
             @endif
         </div>
-        <div style="background-color: #282b3e;">
+        <div style="background-color: #282b3e;text-align: center;">
             <a href="#register"><img src="{{ asset('storage/webinar.png') }}" class="responsive"></a>
         </div>
         <br>
@@ -140,7 +145,9 @@
             <a class="button" href="#register">Reserve My Seat Now</a>
             <br>
             <br>
-            <img src="{{ asset('storage/endorser.png') }}" class="responsive">
+            ...
+            <br>
+            <a href="#register"><img src="{{ asset('storage/endorser.png') }}" class="responsive"></a>
             <br>
             <br>
             <span class="header">What You Will Learn?</span>
@@ -210,7 +217,7 @@
             <span style="color: red;">Registration Closes In Oct 11, 2020 at 12midnight, Reserved your seat now.</span>
             <br>
             <br>
-            This webinar from a well experience financial advisor is your biggest opportunity already. Offered FREE for you. When talking about money, Only trust the experts.
+            This webinar from a well experience financial advisor is your biggest opportunity already. Offered FREE for you.
             <br>
             <br>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> THIS COMING</div>
@@ -232,7 +239,7 @@
             <span class="header">Reserve</span>
             <br>
             <span class="header">Your Spot!</span>
-            <div class="invite">JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> THIS COMING</div>
+            <div class="invite">JOIN THE <span class="emphasize-bold">FREE</span> WEBINAR ABOUT FINANCIAL PLANNING THIS COMING</div>
             <div class="when">OCT 12, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
             <table id="register" class="registration-form" cellspacing="10" style="margin: auto;">
                 <tr>
@@ -250,7 +257,9 @@
             </table>
             <span style="font-size: 10pt;">You will receive in your email the instructions on how to access the webinar.</span>
             <br>
-            <button class="button">Submit Now</button>
+            <span style="font-size: 10pt;">Click the button below to submit your information for registration.</span>
+            <br>
+            <button class="button">Yes I will join, Submit Now!</button>
             <br>
             <br>
         </div>
