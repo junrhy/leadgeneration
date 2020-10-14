@@ -9,6 +9,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
         <!-- Styles -->
         <style>
             body {
@@ -108,6 +111,14 @@
             .footer a {
                 text-decoration: none;
                 color: #ffffff;
+            }
+
+            input.responsive.valid, select.responsive.valid {
+                border: 2px solid #a3c1bb !important;
+            }
+
+            input.responsive.invalid, select.responsive.invalid {
+                border: 2px solid red !important;
             }
         </style>
     </head>
@@ -236,7 +247,7 @@
             ...
             <br>
             <br>
-            Never thought that there is an easy way to to grow your money. It's good that I know all of this at young age. Now I am sure that I will be a millionaire in the future.
+            Never thought that there is an easy way to grow your money. It's good that I know all of this at young age. Now I am sure that I will be a millionaire in the future.
             <br>
             <span class="testimonials">Justine Claire | College Student | 21yrs old | Romblon, Philippines</span>
             <br>
@@ -259,23 +270,30 @@
             <span style="font-size: 10pt;">To register for this webinar kindly fill-up the form and click Submit.</span>
             <br>
             <div style="max-width:500px;margin: auto;">
+               
                 <table id="register" class="registration-form responsive" cellspacing="5">
                     <tr>
                         <td align="left" style="font-size: 12pt;min-width: 80px;">First Name</td>
-                        <td style="text-align: left;"><input type="text" name="first_name" class="responsive" style="width:90%; max-width: 340px;"></td>
+                        <td style="text-align: left;">
+                            <input type="text" name="first_name" placeholder="Enter First Name" class="responsive" required style="width:90%; max-width: 340px;">
+                        </td>
                     </tr>
                     <tr>
                         <td align="left" style="font-size: 12pt;">Last Name</td>
-                        <td style="text-align: left;"><input type="text" name="last_name" class="responsive" style="width:90%; max-width: 340px;"></td>
+                        <td style="text-align: left;">
+                            <input type="text" name="last_name" placeholder="Enter Last name" class="responsive" required style="width:90%; max-width: 340px;">
+                        </td>
                     </tr>
                     <tr>
                         <td align="left" style="font-size: 12pt;">Email</td>
-                        <td style="text-align: left;"><input type="text" name="email" class="responsive" style="width:90%; max-width: 340px;"></td>
+                        <td style="text-align: left;">
+                            <input type="text" name="email" placeholder="Enter Email" class="responsive" required style="width:90%; max-width: 340px;">
+                        </td>
                     </tr>
                 </table>
-                <span style="font-size: 10pt;">We will email to you the instructions on how to access the webinar.</span>
+                <span style="font-size: 10pt;"> <span id="email_error" style="color: red;"></span>We will email to you the instructions on how to access the webinar.</span>
                 <br>
-                <button class="button" style="width: 100%;font-size: 16pt;">Yes, I understand. Submit!</button>
+                <button id="submit" class="button" style="width: 100%;font-size: 16pt;">Yes, I understand. Submit!</button>
             </div>
             <br>
             <br>
@@ -289,3 +307,86 @@
         </div>
     </body>
 </html>
+<script type="text/javascript">
+$(function(){
+    $("#submit").on('click', function(){
+        // check required fields
+        if (required_fields() == false) {
+            return false;
+        } 
+
+        var first_name = $("input[name='first_name']").val();
+        var last_name = $("input[name='last_name']").val();
+        var email = $("input[name='email']").val();
+
+        if (isEmail(email)) {
+            // submit data
+            $.ajax({
+              method: "POST",
+              url: "/save_lead",
+              data: { 
+                webinar_date: new Date(),
+                first_name: first_name,
+                last_name: last_name,
+                email: email,
+                _token: "{{ csrf_token() }}"
+              }
+            })
+            .done(function( id ) {
+              window.location.href = '/registration-received';
+            });
+        } else {
+            // invalid email
+            $("input[name='email']").removeClass("valid").addClass("invalid");
+            $("#email_error").html('Please provide a valid email. ');
+        }
+    });
+
+    function required_fields(){
+        var num_invalid = 0;
+
+        num_invalid = num_invalid + check_required_input('first_name');
+        num_invalid = num_invalid + check_required_input('last_name');
+        num_invalid = num_invalid + check_required_input('email');
+
+        if (num_invalid > 0) {return false;}else{return true;}
+    }
+
+    function check_required_input(input_name, type = "text"){
+        var num_invalid = 0;
+
+        if (type == "select") {
+            var input = $('select[name="'+input_name+'"]');
+            var is_name = input.val();
+        } else {
+            var input = $('input[name="'+input_name+'"]');
+            var is_name = input.val();
+        }
+
+        if(is_name){
+            input.removeClass("invalid").addClass("valid");
+        }
+        else{
+            input.removeClass("valid").addClass("invalid");
+            num_invalid = num_invalid + 1;
+        }
+
+        return num_invalid;
+    }
+
+    function clear_validation(input_name, type = "text"){
+        if (type == "select") {
+            $('select[name="'+input_name+'"]').removeClass("invalid");
+            $('select[name="'+input_name+'"]').removeClass("valid");
+        } else {
+            $('input[name="'+input_name+'"]').removeClass("invalid");
+            $('input[name="'+input_name+'"]').removeClass("valid");
+        }
+    }
+
+    function isEmail(email) {
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+    }
+});
+</script>

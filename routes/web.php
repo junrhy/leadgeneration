@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/registration-received', function () {
+    return view('registration_received');
+});
+
+Route::post('save_lead', 'App\Http\Controllers\LeadController@save');
