@@ -285,6 +285,12 @@
                         </td>
                     </tr>
                     <tr>
+                        <td align="left" style="font-size: 12pt;">Mobile No.</td>
+                        <td style="text-align: left;">
+                            <input type="text" name="contact_no" placeholder="Enter Mobile No." class="responsive" required style="width:90%; max-width: 340px;">
+                        </td>
+                    </tr>
+                    <tr>
                         <td align="left" style="font-size: 12pt;">Email</td>
                         <td style="text-align: left;">
                             <input type="text" name="email" placeholder="Enter Email" class="responsive" required style="width:90%; max-width: 340px;">
@@ -317,6 +323,7 @@ $(function(){
 
         var first_name = $("input[name='first_name']").val();
         var last_name = $("input[name='last_name']").val();
+        var contact_no = $("input[name='contact_no']").val();
         var email = $("input[name='email']").val();
 
         if (isEmail(email)) {
@@ -328,6 +335,7 @@ $(function(){
                 webinar_date: new Date(),
                 first_name: first_name,
                 last_name: last_name,
+                contact_no: contact_no,
                 email: email,
                 _token: "{{ csrf_token() }}"
               }
@@ -347,6 +355,7 @@ $(function(){
 
         num_invalid = num_invalid + check_required_input('first_name');
         num_invalid = num_invalid + check_required_input('last_name');
+        num_invalid = num_invalid + check_required_input('contact_no');
         num_invalid = num_invalid + check_required_input('email');
 
         if (num_invalid > 0) {return false;}else{return true;}

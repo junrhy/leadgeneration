@@ -18,6 +18,7 @@ class LeadController extends Controller
     	$lead = new Lead;
     	$lead->first_name = $request->first_name;
     	$lead->last_name = $request->last_name;
+    	$lead->contact_no = $request->contact_no;
     	$lead->email = $request->email;
     	$lead->webinar_date = $datetime->format('Y-m-d H:i:s');
     	$lead->save();
