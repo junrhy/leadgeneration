@@ -151,7 +151,7 @@
             Unfortunately, many Filipinos have yet to discover the benefits of financial planning. Filipinos have to learn more about finance management. Many of our fellow filipinos use all their savings for consumption. That is why we have to encourage each and everyone to save more of your funds for the rainy days. Do you want to learn financial planning to achieve your goals?
             <br>
             <div class="invite">WE INVITE YOU TO JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> ABOUT FINANCIAL PLANNING THIS COMING</div>
-            <div class="when">OCT 12, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
+            <div class="when">Friday OCT 16, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
             <a class="button" href="#register">Reserve My Seat Now</a>
             <br>
             <br>
@@ -185,7 +185,7 @@
             <br>
             <br>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> THIS COMING</div>
-            <div class="when">OCT 12, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
+            <div class="when">Friday OCT 16, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
             <a class="button" href="#register">Reserve My Seat Now</a>
             <br>
             <br>
@@ -224,14 +224,14 @@
             In our webinar you will not just listen but the host will talk to you, interact with you (no camera needed). To properly give you guidance on your specific goals. After that, If you wish to have a one-on-one session, we will be happy to have an appoinment with you in your preferred schedule. Appointments are only offered to webinar participants.
             <br>
             <br>
-            <span style="color: red;">Registration Closes In Oct 11, 2020 at 12midnight, Reserved your seat now.</span>
+            <span style="color: red;">Registration Closes In Thursday OCT 15, 2020 at 12midnight, Reserved your seat now.</span>
             <br>
             <br>
             This webinar from a well experience financial advisor is your biggest opportunity already. Offered FREE for you.
             <br>
             <br>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> THIS COMING</div>
-            <div class="when">OCT 12, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
+            <div class="when">Friday OCT 16, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
             <a class="button" href="#register">Reserve My Seat Now</a>
             <br>
             <br>
@@ -266,7 +266,7 @@
             <br>
             <span class="header">Your Spot!</span>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE</span> WEBINAR ABOUT FINANCIAL PLANNING THIS COMING</div>
-            <div class="when">OCT 12, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
+            <div class="when">Friday OCT 16, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
             <span style="font-size: 10pt;">To register for this webinar kindly fill-up the form and click Submit.</span>
             <br>
             <div style="max-width:500px;margin: auto;">
