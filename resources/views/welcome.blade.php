@@ -230,7 +230,23 @@
             <br>
             Mye is really good at explaining the details about financial planning. My mind has been open to new possibilities and opportunities that I can do to secure my future. Big thanks to you Ma'am Mye. Keep doing it to help more filipinos.
             <br>
-            <span class="testimonials">Jun Rhy Crodua | 33yrs old | Cebu City, Philippines</span>
+            <span class="testimonials">Jun Rhy | IT/Software Consultant | 33yrs old | Cebu City, Philippines</span>
+            <br>
+            <br>
+            ...
+            <br>
+            <br>
+            Never thought that there is an easy way to to grow your money. It's good that I know all of this at young age. Now I am sure that I will be a millionaire in the future.
+            <br>
+            <span class="testimonials">Justine Claire | College Student | 21yrs old | Romblon, Philippines</span>
+            <br>
+            <br>
+            ...
+            <br>
+            <br>
+            I observe that most members of our family become sickly when they are on their 40's and they don't have enough money to cure themeselves. It makes me worry because it might also happen to me when I get older. Good thing I was offered a Critical illness insurance. This will help a lot in case something happens to me.
+            <br>
+            <span class="testimonials">Huzziel | Marine Engineer | 29yrs old | Bohol, Philippines</span>
             <br>
             <br>
             <span class="header">Don't Miss Out</span>
