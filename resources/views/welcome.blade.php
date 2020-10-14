@@ -19,8 +19,8 @@
 
             .content {
                 text-align: center;
-                margin: 15px auto;
-                width: 100%;
+                margin: auto;
+                width: 90%;
                 max-width: 1000px;
             }
 
@@ -91,7 +91,6 @@
                 border: 1px solid black;
                 font-size: 16pt;
                 padding: 8px;
-                width: 300px;
             }
 
             .registration-form {
@@ -241,25 +240,27 @@
             <span class="header">Your Spot!</span>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE</span> WEBINAR ABOUT FINANCIAL PLANNING THIS COMING</div>
             <div class="when">OCT 12, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
-            <table id="register" class="registration-form" cellspacing="10" style="margin: auto;">
-                <tr>
-                    <td align="left">First Name</td>
-                    <td><input type="text" name="first_name"></td>
-                </tr>
-                <tr>
-                    <td align="left">Last Name</td>
-                    <td><input type="text" name="last_name"></td>
-                </tr>
-                <tr>
-                    <td align="left">Email</td>
-                    <td><input type="text" name="email"></td>
-                </tr>
-            </table>
-            <span style="font-size: 10pt;">You will receive in your email the instructions on how to access the webinar.</span>
+            <span style="font-size: 10pt;">To register for this webinar kindly fill-up the form and click Submit.</span>
             <br>
-            <span style="font-size: 10pt;">Click the button below to submit your information for registration.</span>
-            <br>
-            <button class="button">Yes I will join, Submit Now!</button>
+            <div style="max-width:500px;margin: auto;">
+                <table id="register" class="registration-form responsive" cellspacing="5">
+                    <tr>
+                        <td align="left" style="font-size: 12pt;min-width: 80px;">First Name</td>
+                        <td style="text-align: left;"><input type="text" name="first_name" class="responsive" style="width:90%; max-width: 340px;"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="font-size: 12pt;">Last Name</td>
+                        <td style="text-align: left;"><input type="text" name="last_name" class="responsive" style="width:90%; max-width: 340px;"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="font-size: 12pt;">Email</td>
+                        <td style="text-align: left;"><input type="text" name="email" class="responsive" style="width:90%; max-width: 340px;"></td>
+                    </tr>
+                </table>
+                <span style="font-size: 10pt;">We will email to you the instructions on how to access the webinar.</span>
+                <br>
+                <button class="button" style="width: 100%;font-size: 16pt;">Yes, I understand. Submit!</button>
+            </div>
             <br>
             <br>
         </div>
