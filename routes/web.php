@@ -21,4 +21,10 @@ Route::get('/registration-received', function () {
     return view('registration_received');
 });
 
-Route::post('save_lead', 'App\Http\Controllers\LeadController@save');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Leads
+Route::get('/leads', [App\Http\Controllers\LeadController::class, 'index'])->name('lead.index');
+Route::post('save_lead', [App\Http\Controllers\LeadController::class, 'save']);

@@ -4,6 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta property="og:image" content="{{ asset('storage/banner.jpg') }}" />
+
+        <meta property="og:description" content="Financial advisor share their secrets to success so you can rock 2020. Join us for this inspiring, rejuvenating, motivating look at what secret sauce financial experts use to succeed in their financial life. This is for anyone of any level that are committed on achieving their life goals. You will be elevated both in your life and your financial literacy. Check out the topics below, there is something for everyone." />
+
+        <meta property="og:url"content="http://financial-planning-seminar.junrhy.com" />
+
+        <meta property="og:title" content="Getting Rich! With Proper Financial Planning" />
+
         <title>Financial Planning Webinar</title>
 
         <!-- Fonts -->
@@ -123,21 +131,6 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endif
-                </div>
-            @endif
-        </div>
         <div style="background-color: #282b3e;text-align: center;">
             <a href="#register"><img src="{{ asset('storage/webinar.png') }}" class="responsive"></a>
         </div>

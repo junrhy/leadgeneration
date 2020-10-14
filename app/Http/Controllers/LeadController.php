@@ -10,6 +10,14 @@ use DateTime;
 
 class LeadController extends Controller
 {
+    public function index()
+    {
+        $leads = Lead::all();
+
+        return view('lead.index')
+                ->with('leads', $leads);
+    }
+
     public function save(Request $request)
     {
     	$datetime = new DateTime;
