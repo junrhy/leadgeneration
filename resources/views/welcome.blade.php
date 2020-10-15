@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <meta property="og:image" content="{{ asset('storage/banner.jpg') }}" />
+        <meta property="og:image:type" content="image/jpeg" /> 
+        <meta property="og:image:width" content="400" /> 
+        <meta property="og:image:height" content="300" />
 
         <meta property="og:description" content="Financial advisor share their secrets to success so you can rock 2020. Join us for this inspiring, rejuvenating, motivating look at what secret sauce financial experts use to succeed in their financial life. This is for anyone of any level that are committed on achieving their life goals. You will be elevated both in your life and your financial literacy. Check out the topics below, there is something for everyone." />
 
