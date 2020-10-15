@@ -9,5 +9,5 @@ class Lead extends Model
 {
     use HasFactory;
 
-    protected $dates = ['webinar_date', 'registered_date'];
+    protected $dates = ['birthdate', 'webinar_date', 'registered_date'];
 }

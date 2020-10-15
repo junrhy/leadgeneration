@@ -17,26 +17,37 @@
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Contact No.</th>
-                                <th>Email</th>
-                                <th>Webinar Schedule</th>
-                                <th>Date Registered</th>
-                                <th>Action</th>
+                                <th style="font-size: 10pt;">#</th>
+                                <th style="font-size: 10pt;">First Name</th>
+                                <th style="font-size: 10pt;">Last Name</th>
+                                <th style="font-size: 10pt;">Birthdate</th>
+                                <th style="font-size: 10pt;">Contact No.</th>
+                                <th style="font-size: 10pt;">Email</th>
+                                <th style="font-size: 10pt;">Webinar Schedule</th>
+                                <th style="font-size: 10pt;">Date Registered</th>
+                                <th style="font-size: 10pt;">Action</th>
                             </thead>
                         @foreach($leads as $key => $lead)
                             <tr>
-                                <td>{{ $key+1 }}</td>
-                                <td>{{ $lead->first_name }}</td>
-                                <td>{{ $lead->last_name }}</td>
-                                <td>{{ $lead->contact_no }}</td>
-                                <td>{{ $lead->email }}</td>
-                                <td>{{ $lead->webinar_date->format('l | M d, Y | ga') }}</td>
-                                <td>{{ $lead->registered_date->format('l | M d, Y | ga') }}</td>
+                                <td style="font-size: 10pt;">{{ $key+1 }}</td>
+                                <td style="font-size: 10pt;">{{ $lead->first_name }}</td>
+                                <td style="font-size: 10pt;">{{ $lead->last_name }}</td>
+                                <td style="font-size: 10pt;">{{ $lead->birthdate->format('M d, Y') }}</td>
+                                <td style="font-size: 10pt;">{{ $lead->contact_no }}</td>
+                                <td style="font-size: 10pt;">{{ $lead->email }}</td>
+                                <td style="font-size: 10pt;">
+                                    {{ $lead->webinar_date->format('l') }}<br>
+                                    {{ $lead->webinar_date->format('M d, Y') }} - 
+                                    {{ $lead->webinar_date->format('ga') }}
+                                </td>
+                                <td style="font-size: 10pt;">
+                                    {{ $lead->registered_date->format('l') }}<br>
+                                    {{ $lead->registered_date->format('M d, Y') }} - 
+                                    {{ $lead->registered_date->format('ga') }}
+                                </td>
                                 <td>
-                                    <button class="delete-record btn btn-danger" data-id="{{ $lead->id }}">Delete</button>
+                                    <button class="delete-record btn btn-danger" data-id="{{ $lead->id }}" 
+                                        {{ auth()->user()->email == 'admin@admin.com' ? '' : 'disabled' }}>Delete</button>
                                 </td>
                             </tr>
                         @endforeach

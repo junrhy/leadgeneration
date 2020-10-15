@@ -29,3 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/leads', [App\Http\Controllers\LeadController::class, 'index'])->name('lead.index');
 Route::post('save_lead', [App\Http\Controllers\LeadController::class, 'save']);
 Route::delete('destroy_lead/{id}', [App\Http\Controllers\LeadController::class, 'destroy']);
+
+// Users
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+Route::delete('destroy_user/{id}', [App\Http\Controllers\UserController::class, 'destroy']);

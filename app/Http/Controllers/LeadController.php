@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Models\Lead;
 
-use DateTime;
 use Carbon\Carbon;
 
 class LeadController extends Controller
@@ -29,6 +28,7 @@ class LeadController extends Controller
     	$lead = new Lead;
     	$lead->first_name = $request->first_name;
     	$lead->last_name = $request->last_name;
+        $lead->birthdate = Carbon::createFromFormat('F-d-Y', $request->birthdate);
     	$lead->contact_no = $request->contact_no;
     	$lead->email = $request->email;
     	$lead->webinar_date = $request->webinar_date;

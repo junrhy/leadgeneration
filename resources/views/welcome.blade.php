@@ -104,6 +104,12 @@
                 padding: 8px;
             }
 
+            select {
+                border: 1px solid black;
+                font-size: 16pt;
+                padding: 8px;
+            }
+
             .registration-form {
                 border: 3px solid #0aa55a;
                 border-radius: 5px;
@@ -134,34 +140,38 @@
         <?php 
             $current_date = \Carbon\Carbon::now();
 
+            $current_year = \Carbon\Carbon::now()->format('Y');
+            $current_day = \Carbon\Carbon::now()->format('d');
+            $current_month = \Carbon\Carbon::now()->format('F');
+
             switch ($current_date->format('l')) {
                 case 'Monday':
                     $webinar_date = \Carbon\Carbon::parse('next wednesday 5pm');
-                    $webinar_closed = \Carbon\Carbon::parse('next wednesday 2pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next wednesday 12am');
                     break;
                 case 'Tuesday':
                     $webinar_date = \Carbon\Carbon::parse('next wednesday 5pm');
-                    $webinar_closed = \Carbon\Carbon::parse('next wednesday 2pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next wednesday 12am');
                     break;
                 case 'Wednesday':
                     $webinar_date = \Carbon\Carbon::parse('next friday 5pm');
-                    $webinar_closed = \Carbon\Carbon::parse('next friday 2pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next friday 12am');
                     break;
                 case 'Thursday':
                     $webinar_date = \Carbon\Carbon::parse('next friday 5pm');
-                    $webinar_closed = \Carbon\Carbon::parse('next friday 2pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next friday 12am');
                     break;
                 case 'Friday':
                     $webinar_date = \Carbon\Carbon::parse('next monday 5pm');
-                    $webinar_closed = \Carbon\Carbon::parse('next monday 2pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next monday 12am');
                     break;
                 case 'Saturday':
                     $webinar_date = \Carbon\Carbon::parse('next monday 5pm');
-                    $webinar_closed = \Carbon\Carbon::parse('next monday 2pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next monday 12am');
                     break;
                 case 'Sunday':
                     $webinar_date = \Carbon\Carbon::parse('next monday 5pm');
-                    $webinar_closed = \Carbon\Carbon::parse('next monday 2pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next monday 12am');
                     break;
                 
                 default:
@@ -317,6 +327,37 @@
                         </td>
                     </tr>
                     <tr>
+                        <td align="left" style="font-size: 12pt;">Birthdate</td>
+                        <td style="text-align: left;font-size: 12pt;">
+                            <select name="birth_month">
+                                <option name="January">January</option>
+                                <option name="February">February</option>
+                                <option name="March">March</option>
+                                <option name="April">April</option>
+                                <option name="May">May</option>
+                                <option name="June">June</option>
+                                <option name="July">July</option>
+                                <option name="August">August</option>
+                                <option name="September">September</option>
+                                <option name="October">October</option>
+                                <option name="November">November</option>
+                                <option name="December">December</option>
+                            </select>
+                            
+                            <select name="birth_day">
+                                @for($day=1; $day<=31; $day++)
+                                <option name="{{ $day }}">{{ $day }}</option>
+                                @endfor
+                            </select>
+                            
+                            <select name="birth_year">
+                                @for($year=intval($current_year); $year>=intval($current_year) - 100; $year--)
+                                <option name="{{ $year }}">{{ $year }}</option>
+                                @endfor
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td align="left" style="font-size: 12pt;">Mobile No.</td>
                         <td style="text-align: left;">
                             <input type="text" name="contact_no" placeholder="Enter Mobile No." class="responsive" required style="width:90%; max-width: 340px;">
@@ -347,6 +388,10 @@
 </html>
 <script type="text/javascript">
 $(function(){
+    //init
+    $("select[name='birth_month']").val("{{ $current_month }}");
+    $("select[name='birth_day']").val("{{ $current_day }}");
+
     $("#submit").on('click', function(){
         // check required fields
         if (required_fields() == false) {
@@ -355,6 +400,7 @@ $(function(){
 
         var first_name = $("input[name='first_name']").val();
         var last_name = $("input[name='last_name']").val();
+        var birthdate = $("select[name='birth_month']").val()+'-'+$("select[name='birth_day']").val()+'-'+$("select[name='birth_year']").val();
         var contact_no = $("input[name='contact_no']").val();
         var email = $("input[name='email']").val();
 
@@ -367,6 +413,7 @@ $(function(){
                 webinar_date: '{{ $webinar_date }}',
                 first_name: first_name,
                 last_name: last_name,
+                birthdate: birthdate,
                 contact_no: contact_no,
                 email: email,
                 _token: "{{ csrf_token() }}"

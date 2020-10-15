@@ -17,6 +17,7 @@ class CreateLeadsTable extends Migration
             $table->id();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->date('birthdate')->nullable();
             $table->string('email');
             $table->string('contact_no')->nullable();
             $table->datetime('webinar_date');
