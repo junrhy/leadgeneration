@@ -28,3 +28,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Leads
 Route::get('/leads', [App\Http\Controllers\LeadController::class, 'index'])->name('lead.index');
 Route::post('save_lead', [App\Http\Controllers\LeadController::class, 'save']);
+Route::delete('destroy_lead/{id}', [App\Http\Controllers\LeadController::class, 'destroy']);

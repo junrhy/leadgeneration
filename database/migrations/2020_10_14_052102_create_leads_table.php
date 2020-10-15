@@ -20,7 +20,7 @@ class CreateLeadsTable extends Migration
             $table->string('email');
             $table->string('contact_no')->nullable();
             $table->datetime('webinar_date');
-            $table->string('location_upon_registration')->nullable();
+            $table->datetime('registered_date')->nullable();
             $table->timestamps();
         });
     }

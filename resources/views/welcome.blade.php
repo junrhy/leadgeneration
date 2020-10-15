@@ -131,6 +131,45 @@
         </style>
     </head>
     <body class="antialiased">
+        <?php 
+            $current_date = \Carbon\Carbon::now();
+
+            switch ($current_date->format('l')) {
+                case 'Monday':
+                    $webinar_date = \Carbon\Carbon::parse('next wednesday 5pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next wednesday 2pm');
+                    break;
+                case 'Tuesday':
+                    $webinar_date = \Carbon\Carbon::parse('next wednesday 5pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next wednesday 2pm');
+                    break;
+                case 'Wednesday':
+                    $webinar_date = \Carbon\Carbon::parse('next friday 5pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next friday 2pm');
+                    break;
+                case 'Thursday':
+                    $webinar_date = \Carbon\Carbon::parse('next friday 5pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next friday 2pm');
+                    break;
+                case 'Friday':
+                    $webinar_date = \Carbon\Carbon::parse('next monday 5pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next monday 2pm');
+                    break;
+                case 'Saturday':
+                    $webinar_date = \Carbon\Carbon::parse('next monday 5pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next monday 2pm');
+                    break;
+                case 'Sunday':
+                    $webinar_date = \Carbon\Carbon::parse('next monday 5pm');
+                    $webinar_closed = \Carbon\Carbon::parse('next monday 2pm');
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+        ?>
+
         <div style="background-color: #282b3e;text-align: center;">
             <a href="#register"><img src="{{ asset('storage/webinar.png') }}" class="responsive"></a>
         </div>
@@ -144,7 +183,7 @@
             Unfortunately, many Filipinos have yet to discover the benefits of financial planning. Filipinos have to learn more about finance management. Many of our fellow filipinos use all their savings for consumption. That is why we have to encourage each and everyone to save more of your funds for the rainy days. Do you want to learn financial planning to achieve your goals?
             <br>
             <div class="invite">WE INVITE YOU TO JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> ABOUT FINANCIAL PLANNING THIS COMING</div>
-            <div class="when">Friday OCT 16, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
+            <div class="when">{{ $webinar_date->format('l M d, Y') }} at {{ $webinar_date->format('ga') }} | <span class="urgent">Few slots Left!</span></div>
             <a class="button" href="#register">Reserve My Seat Now</a>
             <br>
             <br>
@@ -178,7 +217,7 @@
             <br>
             <br>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> THIS COMING</div>
-            <div class="when">Friday OCT 16, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
+            <div class="when">{{ $webinar_date->format('l M d, Y') }} at {{ $webinar_date->format('ga') }} | <span class="urgent">Few slots Left!</span></div>
             <a class="button" href="#register">Reserve My Seat Now</a>
             <br>
             <br>
@@ -217,14 +256,14 @@
             In our webinar you will not just listen but the host will talk to you, interact with you (no camera needed). To properly give you guidance on your specific goals. After that, If you wish to have a one-on-one session, we will be happy to have an appoinment with you in your preferred schedule. Appointments are only offered to webinar participants.
             <br>
             <br>
-            <span style="color: red;">Registration Closes In Thursday OCT 15, 2020 at 12midnight, Reserved your seat now.</span>
+            <span style="color: red;">Registration Closes In {{ $webinar_closed->format('l M d, Y') }} at {{ $webinar_closed->format('ga') }}, Reserved your seat now.</span>
             <br>
             <br>
             This webinar from a well experience financial advisor is your biggest opportunity already. Offered FREE for you.
             <br>
             <br>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> THIS COMING</div>
-            <div class="when">Friday OCT 16, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
+            <div class="when">{{ $webinar_date->format('l M d, Y') }} at {{ $webinar_date->format('ga') }} | <span class="urgent">Few slots Left!</span></div>
             <a class="button" href="#register">Reserve My Seat Now</a>
             <br>
             <br>
@@ -248,7 +287,7 @@
             ...
             <br>
             <br>
-            I observe that most members of our family become sickly when they are on their 40's and they don't have enough money to cure themeselves. It makes me worry because it might also happen to me when I get older. Good thing I was offered a Critical illness insurance. This will help a lot in case something happens to me.
+            I observe that most members of our family become sickly when they are on their 40's and they don't have enough money to cure themselves. It makes me worry because it might also happen to me when I get older. Good thing I was offered a Critical illness insurance. This will help a lot in case something happens to me.
             <br>
             <span class="testimonials">Huzziel | Marine Engineer | 29yrs old | Bohol, Philippines</span>
             <br>
@@ -259,7 +298,7 @@
             <br>
             <span class="header">Your Spot!</span>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE</span> WEBINAR ABOUT FINANCIAL PLANNING THIS COMING</div>
-            <div class="when">Friday OCT 16, 2020 at 5PM | <span class="urgent">Few slots Left!</span></div>
+            <div class="when">{{ $webinar_date->format('l M d, Y') }} at {{ $webinar_date->format('ga') }} | <span class="urgent">Few slots Left!</span></div>
             <span style="font-size: 10pt;">To register for this webinar kindly fill-up the form and click Submit.</span>
             <br>
             <div style="max-width:500px;margin: auto;">
@@ -325,7 +364,7 @@ $(function(){
               method: "POST",
               url: "/save_lead",
               data: { 
-                webinar_date: new Date(),
+                webinar_date: '{{ $webinar_date }}',
                 first_name: first_name,
                 last_name: last_name,
                 contact_no: contact_no,
