@@ -269,6 +269,8 @@
             In our webinar you will not just listen but the host will talk to you, interact with you (no camera needed). To properly give you guidance on your specific goals. After that, If you wish to have a one-on-one session, we will be happy to have an appoinment with you in your preferred schedule. Appointments are only offered to webinar participants.
             <br>
             <br>
+            <img src="{{ asset('storage/sarah-ambassador.jpg') }}" class="responsive" style="width: 600px;">
+            <br>
             <span style="color: red;">Registration Closes In {{ $webinar_closed->format('l M d, Y') }} at {{ $webinar_closed->format('ga') }}, Reserved your seat now.</span>
             <br>
             <br>
