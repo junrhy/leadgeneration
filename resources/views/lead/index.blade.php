@@ -43,7 +43,7 @@
                                 <td style="font-size: 10pt;">
                                     {{ $lead->registered_date->format('l') }}<br>
                                     {{ $lead->registered_date->format('M d, Y') }} - 
-                                    {{ $lead->registered_date->format('ga') }}
+                                    {{ $lead->registered_date->format('g:ia') }}
                                 </td>
                                 <td>
                                     <button class="delete-record btn btn-danger" data-id="{{ $lead->id }}" 

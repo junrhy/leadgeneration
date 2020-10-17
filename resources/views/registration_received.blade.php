@@ -59,7 +59,7 @@
         <div style="text-align: center;">
             <span class="header">Recommended webinar that might interests you.</span>
             <br>
-            <a href="https://zoom.us/webinar/register/WN_eqa6wTs4QU68kpFJkcpymg" target="_blank"><img src="{{ asset('storage/promotions.png') }}" class="responsive" style="width: 600px;"></a>
+            <a href="https://zoom.us/webinar/register/WN_eqa6wTs4QU68kpFJkcpymg" target="_blank"><img src="{{ asset('storage/promotions.png') }}" class="responsive" style="max-width: 600px;"></a>
         </div>
         <br>
         <br>
