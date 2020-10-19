@@ -409,7 +409,7 @@ $(function(){
         var contact_no = $("input[name='contact_no']").val();
         var email = $("input[name='email']").val();
 
-        if (isEmail(email)) {
+        if (email != '') {
             // submit data
             $.ajax({
               method: "POST",
