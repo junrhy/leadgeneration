@@ -281,6 +281,9 @@
             This webinar from a well experience financial advisor is your biggest opportunity already. Offered FREE for you.
             <br>
             <br>
+            You'll also have an opportunity to talk to a Performance Coach. This is a big deal already if you are an employee or a businessman. Because performance coach are really expensive. Performance coach are experienced and trained individuals who's job is to make a person motivated at their work or business always. This coach has been coaching business owners, managers, executives for the past years and we are so lucky she offers FREE coaching for our financial planning webinar attendees. 
+            <br>
+            <br>
             <div class="invite">JOIN THE <span class="emphasize-bold">FREE WEBINAR</span> THIS COMING</div>
             <div class="when">{{ $webinar_date->format('l M d, Y') }} at {{ $webinar_date->format('ga') }} | <span class="urgent">Few slots Left!</span></div>
             <a class="button" href="#register">Reserve My Seat Now</a>
